@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How You Can Help - LGBTQIA+ Youth Housing Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1e3a8a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #eab308;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #eab308;
+        }
+
+        /* Page Header */
+        .header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #dc2626;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Help Container */
+        .help-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .help-column {
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .help-column:hover {
+            transform: translateY(-5px);
+        }
+
+        .help-column h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .ally h2 {
+            color: #eab308;
+        }
+
+        .awareness h2 {
+            color: #dc2626;
+        }
+
+        .donate h2 {
+            color: #eab308;
+        }
+
+        .help-column ul {
+            list-style: none;
+        }
+
+        .help-column li {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .help-column li::before {
+            content: '•';
+            color: #dc2626;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .donate p {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .donate-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .donate-links a {
+            display: inline-block;
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        }
+
+        .donate-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4);
+            color: white;
+        }
+
+        /* Note */
+        .note {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .help-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .logo {
+                width: 50px;
+                height: 40px;
+            }
+
+            .help-container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://i.ibb.co/2LFQDZR/1.png" alt="Rainbow Haven logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="page 1 - home.html">Home</a></li>
+            <li><a href="page 2 - shelter finder.html">Shelter Finder</a></li>
+            <li><a href="page 3 - real stories.html">Real Stories</a></li>
+            <li><a href="page 4 - how you can help.html" class="active">How You Can Help</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>How You Can Help</h1>
+    </div>
+
+    <div class="help-container">
+        <div class="help-grid">
+            <div class="help-column ally">
+                <h2>Be An Ally:</h2>
+                <ul>
+                    <li>Listen without judging when someone shares their experiences.</li>
+                    <li>Respect people's names, pronouns, and identities.</li>
+                    <li>Speak up when you hear unfair or hurtful comments.</li>
+                    <li>Offer support in ways that make people feel safe and included.</li>
+                    <li>Learn more about LGBTQIA+ issues instead of relying on stereotypes.</li>
+                    <li>Small acts of kindness and acceptance can make a big difference.</li>
+                </ul>
+            </div>
+
+            <div class="help-column awareness">
+                <h2>Raise Awareness:</h2>
+                <ul>
+                    <li>Share reliable information about LGBTQIA+ youth homelessness.</li>
+                    <li>Help others understand how family rejection and discrimination can affect safety.</li>
+                    <li>Encourage respectful conversations at school and in the community.</li>
+                    <li>Use social media responsibly to spread awareness, not misinformation.</li>
+                    <li>Support events, campaigns, or school projects that promote inclusion.</li>
+                    <li>Awareness can help reduce stigma and connect more young people to support.</li>
+                </ul>
+            </div>
+
+            <div class="help-column donate">
+                <h2>Donate:</h2>
+                <p>You can support organisations that provide help, housing, advocacy, or crisis support for vulnerable LGBTQIA+ youth.</p>
+                <div class="donate-links">
+                    <a href="https://www.thetrevorproject.org/donate/" target="_blank">The Trevor Project — Donate</a>
+                    <a href="https://www.covenanthouse.org/get-involved/ways-to-give" target="_blank">Covenant House — Donate</a>
+                    <a href="https://truecolorsunited.org/" target="_blank">True Colors United — Donate</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="note">
+            “Even small actions—listening, learning, sharing, or donating—can help create safer spaces for LGBTQIA+ youth.”
+        </div>
+    </div>
+</body>
+</html>

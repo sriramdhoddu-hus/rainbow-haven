@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelter Finder - LGBTQIA+ Youth Housing Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1e3a8a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #eab308;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #eab308;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            gap: 3rem;
+        }
+
+        .heading-section {
+            flex: 1;
+        }
+
+        .heading-section h1 {
+            font-size: clamp(1.75rem, 4.2vw, 3.15rem);
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+
+        .hotline-section {
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .hotline {
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+
+        .hotline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Dropdown */
+        .dropdown-section {
+            margin-bottom: 4rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        select {
+            width: 100%;
+            padding: 1.25rem 2rem 1.25rem 1.5rem;
+            font-size: 1.15rem;
+            border: 2px solid transparent;
+            border-radius: 16px;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #f8fafc, #f1f5f9) border-box;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280' stroke-width='2'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.25rem center;
+            background-size: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            font-weight: 500;
+            color: #374151;
+        }
+
+        select:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #eab308;
+            box-shadow: 0 0 0 4px rgba(234,179,8,0.15), 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Results Card */
+        .results-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            padding: 4rem;
+            border-radius: 32px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 3px solid #eab308;
+            max-width: 900px;
+            margin: 0 auto;
+            backdrop-filter: blur(20px);
+        }
+
+        .resource-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-row:hover {
+            background: linear-gradient(90deg, rgba(234,179,8,0.05), rgba(234,179,8,0.02));
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(234,179,8,0.15);
+        }
+
+        .resource-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .checkbox {
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+            width: 20px;
+            height: 20px;
+            accent-color: #eab308;
+            cursor: default;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(234,179,8,0.3);
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .resource-name a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .resource-name a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #eab308, #facc15);
+            transition: width 0.3s ease;
+        }
+
+        .resource-name a:hover {
+            color: #1e3a8a;
+        }
+
+        .resource-name a:hover::after {
+            width: 100%;
+        }
+
+        .resource-location {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #64748b;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .pin-icon {
+            color: #eab308;
+            font-size: 1.25rem;
+            filter: drop-shadow(0 2px 4px rgba(234,179,8,0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .resource-row:hover .pin-icon {
+            transform: scale(1.1);
+        }
+
+        .resource-location a {
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .resource-location a:hover {
+            color: #eab308;
+            border-bottom-color: rgba(234,179,8,0.3);
+        }
+
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+            margin: 3rem 0;
+            border-radius: 1px;
+        }
+
+        /* Bottom section */
+        .bottom-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .bottom-text {
+            color: #64748b;
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .find-shelter-btn {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+            color: white;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 20px 40px rgba(239, 68, 68, 0.4),
+                0 4px 12px rgba(239, 68, 68, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .find-shelter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .find-shelter-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                0 30px 60px rgba(239, 68, 68, 0.5),
+                0 8px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .find-shelter-btn:hover::before {
+            left: 100%;
+        }
+
+        .find-shelter-btn:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hotline-section {
+                text-align: center;
+            }
+
+            .hotline::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            .results-card {
+                padding: 3rem 2rem;
+                margin: 0 -1.5rem;
+                border-radius: 24px;
+            }
+
+            .resource-row {
+                padding: 1.75rem 0;
+                gap: 1rem;
+            }
+
+            .bottom-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .find-shelter-btn {
+                width: 100%;
+                padding: 1.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .logo {
+                width: 50px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <img src="https://i.ibb.co/2LFQDZR/1.png" alt="LGBTQIA+ Support Logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="page 1 - home.html">Home</a></li>
+            <li><a href="page 2 - shelter finder.html" class="active">Shelter Finder</a></li>
+            <li><a href="page 3 - real stories.html">Real Stories</a></li>
+            <li><a href="page 4 - how you can help.html">How You Can Help</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Hero - Left heading, Right hotline -->
+        <div class="hero">
+            <div class="heading-section">
+                <h1>Need Help Now?</h1>
+            </div>
+            <div class="hotline-section">
+                <div class="hotline">EMERGENCY HOTLINE: 14416</div>
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="dropdown-section">
+            <select id="regionSelect">
+                <option value="">Indian State / Region</option>
+                <option value="kerala">Kerala / Tamil Nadu</option>
+                <option value="karnataka">Karnataka / Andhra Pradesh / Telangana</option>
+                <option value="maharashtra">Maharashtra / Goa</option>
+                <option value="delhi">Delhi / Haryana / Punjab</option>
+                <option value="rajasthan">Rajasthan / Gujarat</option>
+                <option value="uttar">Uttar Pradesh / Uttarakhand</option>
+                <option value="bihar">Bihar / Jharkhand</option>
+                <option value="westbengal">West Bengal / Odisha</option>
+                <option value="assam">Assam / Northeast</option>
+                <option value="madhya">Madhya Pradesh / Chhattisgarh</option>
+            </select>
+        </div>
+
+        <!-- Results Card -->
+        <div class="results-card" id="resultsCard">
+            <!-- Resources populated by JS -->
+        </div>
+    </div>
+
+    <script>
+        // JS unchanged - exact region data, functionality preserved
+        const regionData = {
+            kerala: [
+                { name: 'Garima Greh Directory – Chennai / Tamil Nadu', location: 'Chennai / Tamil Nadu', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – Tamil Nadu / South India', location: 'South India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'Remote support / referral', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            karnataka: [
+                { name: 'Garima Greh Directory – South India', location: 'South India', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – Karnataka / South India', location: 'South India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'Support and referrals', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/contact-us/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            maharashtra: [
+                { name: 'The Humsafar Trust', location: 'Mumbai', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'The Humsafar Trust Contact', location: 'Mumbai office', desc: 'Office and contact support', url: 'https://humsafar.org/contact-us/' },
+                { name: 'Garima Greh – West India', location: 'West India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            delhi: [
+                { name: 'The Humsafar Trust Contact', location: 'Delhi office', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/contact-us/' },
+                { name: 'The Humsafar Trust', location: 'Delhi / India', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Garima Greh – North India', location: 'North India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            rajasthan: [
+                { name: 'Garima Greh Directory – West India', location: 'West India', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – West India', location: 'West India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'India (online/contact)', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            uttar: [
+                { name: 'Garima Greh Directory – North India', location: 'North India', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – North India', location: 'North India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'India (online/contact)', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            bihar: [
+                { name: 'Garima Greh Directory – East India', location: 'East India', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – East India', location: 'East India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'India (online/contact)', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            westbengal: [
+                { name: 'Garima Greh Directory – East India', location: 'East India', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – East India', location: 'East India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'India (online/contact)', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            assam: [
+                { name: 'The Humsafar Trust Contact', location: 'Guwahati office', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/contact-us/' },
+                { name: 'The Humsafar Trust', location: 'India', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Garima Greh – Northeast / India', location: 'India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ],
+            madhya: [
+                { name: 'Garima Greh Directory – Central India', location: 'Central India', desc: 'Government shelter listings for transgender persons', url: 'https://transgender.dosje.gov.in/Applicant/Registration/ListofNGO' },
+                { name: 'Garima Greh – Central India', location: 'Central India', desc: 'Trans shelter support', url: 'https://transgender.dosje.gov.in/Applicant/Registration/DisplayForm5' },
+                { name: 'The Humsafar Trust', location: 'India (online/contact)', desc: 'LGBTQIA+ support and referrals', url: 'https://humsafar.org/' },
+                { name: 'Tele-MANAS', location: 'India-wide', desc: 'Mental health crisis support', url: 'https://telemanas.mohfw.gov.in/' }
+            ]
+        };
+
+        const defaultResources = [
+            { name: 'Shelter Name 1', location: 'Sample Address', desc: '', url: '#' },
+            { name: 'Shelter Name 2', location: 'Sample Address', desc: '', url: '#' },
+            { name: 'Shelter Name 3', location: 'Sample Address', desc: '', url: '#' },
+            { name: 'Shelter Name 4', location: 'Sample Address', desc: '', url: '#' }
+        ];
+
+        function renderResources(resources) {
+            const card = document.getElementById('resultsCard');
+        let html = `
+                <h2 style="text-align: center; color: #1e3a8a; font-size: 2rem; margin-bottom: 2rem; font-weight: bold;">List of Shelters</h2>
+                <div class="divider"></div>
+                ${resources.map(resource => `
+                    <div class="resource-row">
+                        <input type="checkbox" class="checkbox" disabled checked>
+                        <div class="resource-info">
+                            <div class="resource-name">
+                                <a href="${resource.url}" target="_blank">${resource.name}</a>
+                            </div>
+                            <div class="resource-location">
+                                <span class="pin-icon">📍</span>
+                                <a href="${resource.url}" target="_blank">${resource.location}</a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+                <div class="divider"></div>
+                <div class="bottom-section">
+                    <div class="bottom-text">Find a refuge closest to you.</div>
+                    <button class="find-shelter-btn" onclick="scrollToCard()">Find Shelter</button>
+                </div>
+            `;
+            card.innerHTML = html;
+        }
+
+        function scrollToCard() {
+            document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('regionSelect').addEventListener('change', (e) => {
+            const value = e.target.value;
+            if (value && regionData[value]) {
+                renderResources(regionData[value]);
+            } else {
+                renderResources(defaultResources);
+            }
+        });
+
+        renderResources(defaultResources);
+    </script>
+</body>
+</html>

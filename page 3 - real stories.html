@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Stories - LGBTQIA+ Youth Housing Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1e3a8a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #eab308;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #eab308;
+        }
+
+        /* Page Header */
+        .header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Stories Grid */
+        .stories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background-color: #dc2626;
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body p {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Note */
+        .note {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .logo {
+                width: 50px;
+                height: 40px;
+            }
+
+            .stories-container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://i.ibb.co/2LFQDZR/1.png" alt="Rainbow Haven logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="page 1 - home.html">Home</a></li>
+            <li><a href="page 2 - shelter finder.html">Shelter Finder</a></li>
+            <li><a href="page 3 - real stories.html" class="active">Real Stories</a></li>
+            <li><a href="page 4 - how you can help.html">How You Can Help</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>Real Stories</h1>
+    </div>
+
+    <div class="stories-container">
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="card-header">
+                    <h3>Story #1 - Alan Turing</h3>
+                </div>
+                <div class="card-body">
+                    <p>Alan Turing was treated unjustly due to his sexual orientation at a time when it was criminalised in the UK. In 1952, he was punished and forced to go through medical treatment that harmed his body. Despite his unfair treatment, his earlier work helped Britain win World War II. Today, he is recognised as an important scientist, and people now recognize how unjustly he was treated.</p>
+                    <img src="https://framerusercontent.com/images/UDAkFSQBav4332gOQDzXNvavg.png" alt="Alan Turing" style="width:200px; height:200px; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="card-header">
+                    <h3>Story #2 - Conan Gray</h3>
+                </div>
+                <div class="card-body">
+                    <p>Conan Gray grew up in Texas—a highly conservative state against homosexuality and transgenderism. He often felt out of place and was judged and teased by others for not fitting the traditional norms of masculinity. Despite this, Gray went onto become a well-known pop artist, with songs for people with similar experiences, such as 'Found Heaven'.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Conan_gray_2024_%28cropped%29.jpg" alt="Conan Gray" style="width:200px; height:200px; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="card-header">
+                    <h3>Story #3 - Elton John</h3>
+                </div>
+                <div class="card-body">
+                    <p>Elton John experienced intense public and media homophobia during a time when being openly gay was widely stigmatized, forcing him to navigate his identity while being judged, while also dealing with personal struggles. Over time, he embraced his sexuality openly, overcame addiction, and built a stable and celebrated career, using his fame to advocate for LGBTQ+ rights and support those affected by HIV/AIDS.</p>
+                    <img src="https://static.wikia.nocookie.net/beatles/images/b/b4/Elton_John.jpg/revision/latest?cb=20230907172915" alt="Elton John" style="width:200px; height:200px; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="card-header">
+                    <h3>Story #4 - SOPHIE</h3>
+                </div>
+                <div class="card-body">
+                    <p>SOPHIE was a transgender woman who faced judgment and misunderstanding in both the music industry and society because of her gender identity, and experienced heavy transphobia from society. Despite this, she became a groundbreaking producer, praised for her innovative music and inspiring LGBTQIA+ artists around the world, showing how she turned challenges into influence and resilience.</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK2gcDsLd_yW8QQtLb5AnpKZrSUs9ELG56aA&s" alt="SOPHIE" style="width:200px; height:200px; object-fit:cover; border-radius:12px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="note">
+            <a href="https://open.spotify.com/playlist/427Zuy9sZnn7lCjudE6YPF">Click here to find a motivational Spotify playlist</a>
+        </div>
+    </div>
+</body>
+</html>

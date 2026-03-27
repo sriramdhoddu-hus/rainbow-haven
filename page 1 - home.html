@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - LGBTQIA+ Youth Housing Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1e3a8a;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #eab308;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #eab308;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            gap: 4rem;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Homepage Image */
+        .image-section {
+            flex: 1;
+            min-height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Content Cards */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .why-happens h2 {
+            color: #dc2626;
+        }
+
+        .why-matters h2 {
+            color: #ea580c;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .image-section {
+                min-height: 300px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://i.ibb.co/2LFQDZR/1.png" alt="Rainbow Haven logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="page 1 - home.html" class="active">Home</a></li>
+            <li><a href="page 2 - shelter finder.html">Shelter Finder</a></li>
+            <li><a href="page 3 - real stories.html">Real Stories</a></li>
+            <li><a href="page 4 - how you can help.html">How You Can Help</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="image-section">
+            <img src="https://thumbs.dreamstime.com/b/depressed-teenage-boy-holding-pride-flag-depressed-teenage-100143529.jpg" alt="Supportive housing illustration">
+        </div>
+        <div class="content">
+            <div class="card why-happens">
+                <h2>Why This Happens</h2>
+                <p>LGBTQIA+ youth experiencing housing instability often face rejection from family due to their sexual orientation or gender identity. Many are kicked out, or decide to run away from home after coming out, which is worsened by lack of affirming support systems. Discrimination in shelters and a lack of awareness on shelters aggravate the issue, leaving thousands without safe shelter each year.</p>
+                <br>
+                <p>Contributing factors include societal stigma, inadequate protection of queer individuals from the government, and limited access to affirming resources in many communities.</p>
+            </div>
+            <div class="card why-matters">
+                <h2>Why This Matters</h2>
+                <p>Addressing housing instability for LGBTQIA+ youth is crucial for their safety, mental health, and future opportunities. Unstable housing leads to higher risks of trauma, substance use, and homelessness cycles that persist into adulthood.</p>
+                <br>
+                <p>Supportive shelters and communities aid in building resilience, foster community, and open up doors for housing and financial stability, benefiting society as a whole.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
